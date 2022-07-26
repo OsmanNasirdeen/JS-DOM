@@ -1,0 +1,64 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    background: url(bg-image.jpg) no-repeat center center/ cover;
+    height: 100vh;
+    position: relative;
+}
+
+.open{
+    position: absolute;
+    top:80%;
+    left:20%;
+    width:300px;
+    height: 50px;
+    font-size: 1.5rem;
+    background: transparent;
+    border:3px solid black;
+    border-radius:10px ;
+    text-transform: capitalize;
+    color:#fff;
+    transition: .5s;
+}
+.open:hover{
+background: white;
+color:black;
+}
+
+
+.modal-container{
+    position: absolute;
+    top:60%;
+    left: 50%;
+    width:120px;
+    height: 40px;
+    background: #fff;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    align-items: center;
+    padding:5px;
+    animation-name: animater;
+        animation-duration: .5s;
+}
+.model{
+display:none;
+
+}
+
+@keyframes animater {
+    from{
+        top:-300px;
+        opacity:0;
+    }
+    to{
+        top:60%;
+        opacity:1;
+    }
+}
