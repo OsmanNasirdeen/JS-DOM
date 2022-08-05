@@ -1,4 +1,5 @@
-const addBtn = document.querySelector(".add-btn");
+const startBtn = document.querySelector(".start-btn");
+const resetBtn = document.querySelector(".reset-btn");
 const seconds = document.querySelector(".seconds");
 const minutes = document.querySelector(".minutes");
 const hours = document.querySelector(".hours");
@@ -41,12 +42,29 @@ const stopWatch = () => {
   }
 };
 
-addBtn.addEventListener("click", () => {
+startBtn.addEventListener("click", () => {
   if (timerStatus === "stopped") {
-    timer = window.setInterval(stopWatch, 1);
+    timer = window.setInterval(stopWatch, 1000);
     timerStatus = "started";
+    startBtn.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+    startBtn.style.backgroundColor = "yellow";
   } else {
     window.clearInterval(timer);
+    startBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
+    startBtn.style.backgroundColor = "green";
     timerStatus = "stopped";
   }
+});
+
+resetBtn.addEventListener("click", () => {
+  window.clearInterval(timer);
+  timerStatus = "stopped";
+  second = 0;
+  minute = 0;
+  hour = 0;
+  minutes.innerHTML = "00";
+  hours.innerHTML = "00";
+  seconds.innerHTML = "00";
+  startBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
+  startBtn.style.backgroundColor = "green";
 });
